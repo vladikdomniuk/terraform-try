@@ -4,8 +4,10 @@ pipeline{
     stages{
         stage("Checkout")
         {
-             git url:'https://github.com/vladikdomniuk/terraform-try.git',
+            steps{
+                git url:'https://github.com/vladikdomniuk/terraform-try.git',
                 branch:'main'
+            }
         }
         stage('Init') {
             steps {
