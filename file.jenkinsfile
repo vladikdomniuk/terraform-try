@@ -4,8 +4,7 @@ pipeline{
 //     tools {
 //       terraform "Terraform"
 //   }
-    agent {
-        docker { dockerfile true}
+    agent { dockerfile true
     }
     stages{
         stage('Checkout')
