@@ -11,7 +11,7 @@ pipeline{
         }
         stage('Init') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'terraform-aws-key', usernameVariable: 'JENKINS_ACCESS_KEY', passwordVariable: 'JENKINS_SECRET_KEY' )]) {
+                withCredentials([[credentialsId: 'terraform-aws-key', usernameVariable: 'JENKINS_ACCESS_KEY', passwordVariable: 'JENKINS_SECRET_KEY' ]]) {
                     script {
                         sh '''
                         export AWS_ACCESS_KEY=${JENKINS_ACCESS_KEY}
@@ -26,7 +26,7 @@ pipeline{
         }
         stage('Plan') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'terraform-aws-key', usernameVariable: 'JENKINS_ACCESS_KEY', passwordVariable: 'JENKINS_SECRET_KEY' )]) {
+                 withCredentials([[credentialsId: 'terraform-aws-key', usernameVariable: 'JENKINS_ACCESS_KEY', passwordVariable: 'JENKINS_SECRET_KEY' ]]) {
                     script {
                             tfExitCode = sh returnStatus: true, script: '''
                                 export AWS_ACCESS_KEY=${JENKINS_ACCESS_KEY}
@@ -51,7 +51,7 @@ pipeline{
                 submitter 'vlad'
             }
             steps {
-                withCredentials([usernamePassword(credentialsId: 'terraform-aws-key', usernameVariable: 'JENKINS_ACCESS_KEY', passwordVariable: 'JENKINS_SECRET_KEY' )]) {
+                 withCredentials([[credentialsId: 'terraform-aws-key', accessKeyVariable: 'JENKINS_ACCESS_KEY', secretKeyVariable: 'JENKINS_SECRET_KEY' ]]) {
                     script {
                         sh '''
                             export AWS_ACCESS_KEY=${JENKINS_ACCESS_KEY}
