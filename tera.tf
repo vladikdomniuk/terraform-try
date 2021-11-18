@@ -51,6 +51,6 @@ resource "aws_s3_bucket" "myBucket" {
     Name        = "My bucket"
   }
   versioning{
-    enable = true
+    enabled = true
   }
 }
