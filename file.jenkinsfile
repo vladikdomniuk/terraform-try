@@ -5,7 +5,7 @@ pipeline{
 //       terraform "Terraform"
 //   }
     agent { 
-        docker{ }
+        docker{ image: 'node:14-alpine' }
         }
     stages{
         stage('Checkout')
