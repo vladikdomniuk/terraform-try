@@ -8,6 +8,9 @@ pipeline{
         //docker{ image 'node:14-alpine' }
         dockerfile true
         }
+        tools {
+      docker "Docker"
+  }
     stages{
         stage('Checkout')
         {
