@@ -4,7 +4,10 @@ pipeline{
 //     tools {
 //       terraform "Terraform"
 //   }
-    agent { dockerfile true }
+    agent { 
+        docker{ }
+        dockerfile true
+        }
     stages{
         stage('Checkout')
         {
@@ -13,6 +16,12 @@ pipeline{
                 branch:'main'
             }
         }
+        // stage('Docker')
+        // {
+        //     steps{
+        //         sh 'docker build .'
+        //     }
+        // }
         stage('Init') {
             steps {
                 withCredentials([[$class: 'AmazonWebServicesCredentialsBinding',credentialsId: 'terraform-aws-key', accessKeyVariable: 'JENKINS_ACCESS_KEY', secretKeyVariable: 'JENKINS_SECRET_KEY' ]]) {
