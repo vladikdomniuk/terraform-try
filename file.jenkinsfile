@@ -6,7 +6,6 @@ pipeline{
 //   }
     agent { 
         docker{ }
-        dockerfile true
         }
     stages{
         stage('Checkout')
