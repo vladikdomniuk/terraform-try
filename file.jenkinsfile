@@ -1,9 +1,9 @@
 
 pipeline{
     agent any
-//     tools {
-//       terraform "Terraform"
-//   }
+    tools {
+      terraform "Terraform"
+  }
     // agent { 
     //     docker{ image 'node:14-alpine' }
     //     dockerfile true
