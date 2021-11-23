@@ -44,13 +44,13 @@ resource "aws_security_group" "my_webserver" {
     cidr_blocks      = ["0.0.0.0/0"]
   }
 }
-resource "aws_s3_bucket" "myBucket" {
-  bucket = "s3-terraform-bucket"
-  acl    = "private"  
-  tags = {
-    Name        = "My bucket"
-  }
-  versioning{
-    enabled = true
-  }
-}
+# resource "aws_s3_bucket" "myBucket" {
+#   bucket = "s3-terraform-bucket"
+#   acl    = "private"  
+#   tags = {
+#     Name        = "My bucket"
+#   }
+#   versioning{
+#     enabled = true
+#   }
+# }
